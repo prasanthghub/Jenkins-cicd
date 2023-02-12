@@ -1,23 +1,24 @@
-pipeline {	 
-	agent any	 
-		stages {     	 
-    		stage('First Stage') {
-        			steps {               	 
-            			echo 'Hello World'          
-        			}     	 
-    		}     	 
-    		stage('Second Stage') {          	 
-        			steps {               	 
-            			echo 'Hello Again'               	 
-            			echo 'A third time Hello'         	
-                        echo 'A Fourth time Hello' 
-        			}     
-    		}
-            stage('Day') {          	 
-        			steps {               	 
-            			echo 'date & time is: Sunday'
-            			
-        			}     
-    		}	
+pipeline {
+	agent any
+	tools {
+    	maven 'my_mvn'
 	}
+	stages {
+	    	stage('clean') {
+        	steps {
+        	sh "mvn clean"  	 
+        	}
+    	}
+    		stage('Build') {
+        	steps {
+        	sh "mvn compile"  	 
+        	}
+    	}
+   	 
+    		stage("Unit test") {          	 
+        	steps {  	 
+            	sh "mvn test"          	 
+       	}
+}
+}
 }
