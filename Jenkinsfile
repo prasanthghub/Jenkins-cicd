@@ -6,7 +6,7 @@ pipeline {
 	stages {
     	stage("Checkout") {   
         	steps {               	 
-            	git branch: '5.2_pipeline', url: 'https://github.com/prasanthghub/Jenkins-cicd.git'        	 
+            	git branch: 'session5.2_pipeline', url: 'https://github.com/prasanthghub/Jenkins-cicd.git'        	 
            	 
         	}    
     	}
