@@ -1,5 +1,5 @@
 pipeline {
-	agent slave1,slave2
+	agent any
 	tools {
     	maven 'my_mvn'
 	}
